@@ -1,0 +1,286 @@
+/* =========================================
+   Google Fonts
+========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* =========================================
+   Reset / Normalize & Base styles
+========================================= */
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: "Poppins" , serif;
+}
+
+html {
+   scroll-behavior: smooth;
+}
+
+li {
+   list-style: none;
+}
+
+a {
+   text-decoration: none;
+}
+
+body {
+   min-height: 100vh;
+   background: #f8f9fc;
+}
+
+/* =========================================
+   Bottom navigation menu
+========================================= */
+.bottom-menu-container {
+   position: relative;
+}
+
+.bottom-menu {
+   position: fixed;
+   left: 50%;
+   bottom: 50px;
+   opacity: 1;
+   transform: translateX(-50%);
+   transition-property: bottom , opacity;
+   transition: .5s ease, .3s ease;
+}
+
+.bottom-menu.hide{
+   bottom: -75px;
+   opacity: 0;
+   transition-property: bottom , opacity;
+   transition: .5s ease, .3s ease;
+}
+
+.bottom-menu-inner {
+   position: relative;
+}
+
+.bottom-menu .menu {
+   background: hsl(217 32% 85% / .8);
+   backdrop-filter: blur(10px);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   column-gap: 25px;
+   padding: 16px 35px;
+   border-bottom: 1px solid hsl(217 26% 12% /.1);
+   border-left: 1px solid hsl(217 26% 12% /.1);
+   border-radius: 50px;
+}
+
+.bottom-menu .menu-item a{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+.bottom-menu .menu-item a i {
+   color: #172627;
+   font-size: 1.4rem;
+  /* background: blue;*/
+   padding: 10px;
+   border-radius: 50%;
+   transition: .3s ease;
+}
+
+.bottom-menu .menu-item:hover a i {
+   color: #f8f9fc;
+   background: hsl(217 85% 67%);
+}
+
+.bottom-menu .menu-item .current i {
+   background: hsl(217 85% 74%);
+}
+
+.bottom-menu .menu-item a span {
+   position: absolute;
+   transform: translateY(-53);
+   color: #172627;
+   background: hsl(217 85% 74%);
+   padding: 3px 10px;
+   border-radius: 5px;
+   pointer-events: none;
+   opacity: 0;
+}
+
+.bottom-menu .menu-item:hover a span {
+   opacity: 1;
+}
+
+.bottom-menu .menu-item a span::before{
+   content: "";
+   position: absolute;
+   background: hsl(217 85% 74%);
+   width: 10px;
+   height: 10px;
+   left: 50%;
+   bottom: -8px;
+   transform: rotate(45deg) translateX(-50%);
+}
+
+.bottom-menu .menu-hide-btn{
+   z-index: 999;
+   position: absolute;
+   background: hsl(217 85% 74%);
+   color: #172627;
+   font-size: 1.52rem;
+   padding: 2px;
+   border-radius: 50%;
+   top: -5px;
+   right: 0;
+   cursor: pointer;
+   transition: .3s ease;
+   opacity: 0;
+   pointer-events: none;
+}
+
+.bottom-menu .menu-hide-btn.show{
+   opacity: 1;
+   pointer-events: all;
+}
+
+.bottom-menu .menu-hide-btn :hover{
+   color: #f8f9fc;
+   background: hsl(217 85% 67%);
+}
+
+.menu-show-btn {
+   position: fixed;
+   background: hsl(217 32% 85% / .8);
+   backdrop-filter: blur (10px);
+   width: 85px;
+   height: 50px;
+   left: 50%;
+   bottom: -75px;
+   opacity: 0;
+   translate: -50% 0;
+   border-bottom: hsl(217 26% 12% /.1);
+   border-left: hsl(217 26% 12% /.1);
+   border-radius: 5px;
+   display: grid;
+   place-content: center;
+   gap: 5px;
+   animation: wiggle 2s linear infinite;
+   animation-delay: 1s;
+   transition-property: bottom, opacity;
+   transition: .5s ease,  .3s ease;
+   cursor: pointer;
+}
+
+.menu-show-btn.show{
+   bottom: 50px;
+   opacity: 1;
+   transition-property: bottom, opacity;
+   transition: .5s ease,  .3s ease;
+}
+
+@keyframes wiggle {
+   0%,
+   5%{
+      transform : rotateZ(0);
+   }
+   15%{
+      transform : rotateZ(-15deg);
+   }
+   20% {
+      transform : rotateZ(10deg)
+   }
+   25% {
+      transform : rotateZ(-10deg)
+   }
+   30% {
+      transform : rotateZ(6deg)
+   }
+   35% {
+      transform : rotateZ(-4deg)
+   }
+   40%,
+   100% {
+      transform : rotateZ(0)
+   }
+}
+
+.menu-show-btn .bar-01 ,
+.menu-show-btn .bar-02 {
+   background: hsl(217 85% 74%);
+   width: 40px;
+   height: 5px;
+   transition: .15s ease;
+}
+
+.menu-show-btn:hover .bar-01 ,
+.menu-show-btn:hover .bar-02 {
+   background: hsl(217 85% 67%);
+}
+
+/* =========================================
+   Page section
+========================================= */
+.page-section{
+   min-height: 100vh;
+   display: flex;
+   justify-content: center;
+   padding-top: 125px;
+}
+
+.section-tittle {
+   color: #172627;
+   font-size: 3rem;
+   font-weight: 600;
+}
+
+/* =========================================
+   Media Queries (max-width: 768px)
+========================================= */
+@media screen and (max-width: 768px){
+   .bottom-menu {
+      bottom: 30px;
+   }
+   .bottom-menu .menu-item a i {
+      font-size: 1.3rem;
+   }
+}
+
+/* =========================================
+   Media Queries (max-width: 480px)
+========================================= */
+@media screen and (max-width: 480px){
+   .bottom-menu {
+      width: 100%;
+      padding: 0 20px;
+   }
+
+   .bottom-menu .menu {
+      width: 100%;
+      justify-content: space-between;
+      padding: 15px 20px;
+      column-gap: 7px;
+   }
+
+   .bottom-menu .menu-item a i{
+      font-size: 1.15rem;
+      padding: 8px;
+   }
+
+   .bottom-menu .menu-item a span {
+      padding: 2px 10px;
+      font-size: .85rem;
+   }
+
+   .bottom-menu .menu-hide-btn {
+      font-size: 1.25rem;
+   }
+
+   .menu-show-btn {
+      width: 75px;
+      height: 45px;
+   }
+   .menu-show-btn .bar-01 , .menu-show-btn .bar-02 {
+      width: 37px;
+      height: 4px;
+   }
+}
